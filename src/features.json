@@ -578,8 +578,8 @@
   {
     "n": 97,
     "name": "API-integrationer",
-    "status": "Ingår inte",
-    "note": "Externa API:er uteslutna enligt uppdraget."
+    "status": "Ingår",
+    "note": "Valfri kontroll av senaste källkodsändringen via GitHubs offentliga API. Ingen API-nyckel och inga andra tjänster."
   },
   {
     "n": 98,

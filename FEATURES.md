@@ -98,7 +98,7 @@
 | 94 | PWA-stöd | Ingår | Manifest och appikoner. Installation beror på webbläsarens stöd. |
 | 95 | Offlinefunktioner | Ingår | Explicit hämtning av katalog och detaljsidor; externa kurser kräver internet. |
 | 96 | Realtidsuppdateringar | Lokal variant | Lokala uppgifter uppdateras mellan öppna flikar. Nya katalogversioner hämtas när sidan uppdateras, ingen server-push. |
-| 97 | API-integrationer | Ingår inte | Externa API:er uteslutna enligt uppdraget. |
+| 97 | API-integrationer | Ingår | Valfri kontroll av senaste källkodsändringen via GitHubs offentliga API. Ingen API-nyckel och inga andra tjänster. |
 | 98 | Administrationspanel | Lokal variant | Lokalt utkastverktyg med export. Publicering och behörigheter hanteras separat i GitHub. |
 | 99 | Analysdashboard | Lokal variant | Enbart egen lokal studieaktivitet och ämnesstatistik, ingen global trafikanalys. |
 | 100 | Ingen funktion angiven | Ingår inte | Nummer 100 saknar namn och beskrivning i underlaget. |

@@ -1,77 +1,73 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="En modern och responsiv hemsida under utveckling.">
-  <title>Min hemsida</title>
-  <style>
-    :root { color-scheme: dark; --bg:#080b16; --card:#151b30; --text:#f6f7fb; --muted:#aab3c8; --accent:#7e8cff; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:radial-gradient(circle at 70% 5%,#222b54 0%,var(--bg) 55%); color:var(--text); line-height:1.6; }
-    a { color:inherit; }
-    .container { width:min(1100px,calc(100% - 40px)); margin:auto; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:24px 0; gap:20px; }
-    .logo { font-weight:800; text-decoration:none; letter-spacing:-.04em; font-size:1.25rem; }
-    nav { display:flex; gap:24px; }
-    nav a { text-decoration:none; color:var(--muted); }
-    nav a:hover,nav a:focus-visible { color:white; }
-    .hero { padding:115px 0 105px; max-width:760px; }
-    .eyebrow { color:#abb5ff; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; }
-    h1 { font-size:clamp(2.8rem,7vw,5.3rem); letter-spacing:-.065em; line-height:1.08; margin:18px 0; }
-    .gradient { background:linear-gradient(90deg,#9ca8ff,#65e4db); color:transparent; background-clip:text; }
-    .lead { max-width:590px; color:var(--muted); font-size:1.18rem; margin-bottom:32px; }
-    .button { display:inline-block; background:var(--accent); color:#090d1d; font-weight:800; text-decoration:none; padding:13px 23px; border-radius:12px; transition:transform .2s,background .2s; }
-    .button:hover { background:#a2acff; transform:translateY(-2px); }
-    section { padding-bottom:90px; }
-    h2 { font-size:clamp(1.7rem,4vw,2.5rem); letter-spacing:-.04em; margin:0 0 12px; }
-    .sub { color:var(--muted); margin:0 0 26px; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .card { background:rgba(21,27,48,.85); border:1px solid #2b3554; border-radius:18px; padding:28px; }
-    .card .number { color:#a4afff; font-weight:800; }
-    .card h3 { margin:12px 0 8px; }
-    .card p { color:var(--muted); margin:0; }
-    .about { background:rgba(21,27,48,.65); border:1px solid #2b3554; border-radius:20px; padding:36px; }
-    .about p { color:var(--muted); max-width:720px; }
-    footer { border-top:1px solid #2b3554; color:var(--muted); padding:28px 0; font-size:.9rem; }
-    :focus-visible { outline:3px solid #65e4db; outline-offset:4px; }
-    @media (max-width:700px) { header{align-items:flex-start;flex-direction:column;} nav{gap:16px;} .hero{padding:75px 0;} .cards{grid-template-columns:1fr;} .about{padding:25px;} }
-    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto;} .button{transition:none;} }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hitta gratis certifikat, digitala märken och utbildningar till ditt CV. Sök, filtrera och spara favoriter.">
+<meta name="theme-color" content="#4b56de">
+<title>Meritly – Gratis certifikat till ditt CV</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a class="logo" href="#start">Min hemsida<span style="color:var(--accent)">.</span></a>
-      <nav aria-label="Huvudmeny">
-        <a href="#start">Start</a>
-        <a href="#funktioner">Innehåll</a>
-        <a href="#om">Om sidan</a>
-      </nav>
-    </header>
-    <main>
-      <section class="hero" id="start">
-        <p class="eyebrow">Mitt första webbprojekt</p>
-        <h1>Välkommen till <span class="gradient">min hemsida.</span></h1>
-        <p class="lead">Det här är början på något nytt. Sidan är skapad med HTML och CSS och kan byggas ut med egna idéer, undersidor och funktioner.</p>
-        <a class="button" href="#funktioner">Utforska sidan</a>
-      </section>
-      <section id="funktioner" aria-labelledby="features-title">
-        <h2 id="features-title">En bra grund att bygga vidare på</h2>
-        <p class="sub">Tre delar som gör hemsidan enkel att utveckla.</p>
-        <div class="cards">
-          <article class="card"><span class="number">01</span><h3>Modern design</h3><p>Ren layout, tydliga kontraster och en stil som fungerar på olika skärmar.</p></article>
-          <article class="card"><span class="number">02</span><h3>Mobilanpassad</h3><p>Innehållet anpassar sig automatiskt efter mobil, surfplatta och dator.</p></article>
-          <article class="card"><span class="number">03</span><h3>Enkel att ändra</h3><p>All kod finns i en fil. Det gör det enkelt att lägga till innehåll senare.</p></article>
-        </div>
-      </section>
-      <section id="om" aria-labelledby="about-title">
-        <div class="about"><h2 id="about-title">Om projektet</h2><p>Detta är en första version av hemsidan. Nästa steg kan vara att lägga till bilder, en personlig presentation, projekt eller interaktiva funktioner.</p></div>
-      </section>
-    </main>
-    <footer>© <span id="year">2026</span> Min hemsida. Byggd med HTML och CSS.</footer>
+<header>
+ <div class="wrap topbar">
+  <a class="brand" href="#" aria-label="Meritly startsida"><span class="mark">✓</span> Merit<em>ly.</em></a>
+  <nav class="links" aria-label="Huvudmeny">
+   <button type="button" data-page="all" class="active">Utforska</button>
+   <button type="button" data-page="about">Om sidan</button>
+   <button type="button" class="navfav" data-page="saved">♡ Sparade <span class="favcount">0</span></button>
+  </nav>
+ </div>
+</header>
+<section class="hero" id="hero">
+ <div class="wrap heroin">
+  <div>
+   <span class="eyebrow">✦ Bygg ditt CV utan att betala</span>
+   <h1>Nästa steg i karriären börjar <span>helt gratis.</span></h1>
+   <p class="intro">Hitta kostnadsfria certifikat och digitala märken från utbildningsanordnare som Google, HubSpot och freeCodeCamp – samlade på ett ställe.</p>
+   <div class="heroactions"><button type="button" class="btn btn-primary" id="browse">Utforska utbildningar →</button><button type="button" class="btn btn-outline" data-page="saved">♡ Mina sparade</button></div>
+   <div class="stats"><div><strong id="totalCourses">–</strong>Utbildningar</div><div><strong id="totalProviders">–</strong>Anordnare</div><div><strong>0 kr</strong>För listade meriter*</div></div>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+  <div class="heroart" aria-hidden="true"><div class="illustration"><small>DIN NÄSTA MERIT</small><div class="illrow"><div class="circle">✦</div><div><div style="font-weight:800;font-size:15px">Certificate of Completion</div><div class="illline"></div><div class="illline short"></div></div></div><div style="height:1px;background:#e8ebf3;margin:22px 0"></div><div class="seal">✓ En ny färdighet att visa upp</div></div></div>
+ </div>
+</section>
+<main class="wrap main">
+ <div id="catalogView">
+  <section id="catalog" aria-labelledby="catalogTitle">
+   <div class="sectiontitle"><div><h2 id="catalogTitle">Utforska gratis certifikat</h2><p id="catalogSubtitle">Sök bland kostnadsfria meriter och utbildningar.</p></div></div>
+   <div class="toolbar"><label class="searchbox" for="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Sök efter ämne, certifikat eller anordnare…" autocomplete="off" aria-label="Sök utbildningar"></label><select id="sort" aria-label="Sortera resultat"><option value="default">Rekommenderad ordning</option><option value="az">Namn A–Ö</option><option value="provider">Anordnare A–Ö</option><option value="duration">Kortast först</option></select></div>
+   <div id="categories" class="filters" aria-label="Filtrera på kategori"></div>
+   <div class="layout">
+    <aside class="side" aria-label="Fler filter">
+     <div><h3>Typ av merit</h3><select id="type" aria-label="Typ av merit"><option value="all">Alla typer</option><option value="Certifikat">Certifikat</option><option value="Digitalt märke">Digitalt märke</option></select></div>
+     <hr>
+     <div><h3>Svårighetsgrad</h3><select id="level" aria-label="Svårighetsgrad"><option value="all">Alla nivåer</option><option value="Nybörjare">Nybörjare</option><option value="Medel">Medel</option><option value="Avancerad">Avancerad</option></select></div>
+     <hr>
+     <div><h3>Tidsåtgång</h3><select id="duration" aria-label="Tidsåtgång"><option value="all">Alla längder</option><option value="short">Upp till 3 timmar</option><option value="medium">Över 3 till 8 timmar</option><option value="long">Över 8 timmar</option></select><p style="font-size:11px;color:var(--muted)">Kurser utan angiven tid visas bara när alla längder valts.</p></div>
+     <hr>
+     <div><h3>Anordnare</h3><select id="provider" aria-label="Utbildningsanordnare"><option value="all">Alla anordnare</option><option>HubSpot</option><option>Google Skillshop</option><option>Semrush Academy</option><option>freeCodeCamp</option><option>IBM SkillsBuild</option><option>Cisco Networking Academy</option><option>Salesforce Trailhead</option></select></div>
+     <hr><button id="reset" class="clear" type="button">↺ Nollställ alla filter</button>
+    </aside>
+    <div><div class="resultbar"><span><strong id="resultCount">0</strong> resultat</span><span>Gratis kurs och merit*</span></div><div id="courseGrid" class="grid" aria-live="polite"></div></div>
+   </div>
+  </section>
+  <div class="notice">* En kostnadsfri kurs ger inte alltid ett kostnadsfritt certifikat. Katalogen skiljer mellan certifikat och digitala märken, men tillgänglighet, namn, krav och priser kan ändras. Kontrollera alltid detaljerna hos anordnaren. Plattformen är oberoende och utfärdar inga certifikat själv.</div>
+  <section class="info" aria-label="Så fungerar tjänsten">
+   <div class="infocard"><div class="emoji">⌕</div><h3>1. Hitta rätt utbildning</h3><p>Sök fritt eller filtrera efter ämne, nivå, anordnare och tidsåtgång.</p></div>
+   <div class="infocard"><div class="emoji">♡</div><h3>2. Spara intressanta meriter</h3><p>Markera hjärtat på en kurs. Dina favoriter sparas lokalt i samma webbläsare.</p></div>
+   <div class="infocard"><div class="emoji">✓</div><h3>3. Bygg ditt CV</h3><p>Genomför utbildningen hos anordnaren och lägg till intyget när du faktiskt har fått det.</p></div>
+  </section>
+ </div>
+ <section id="aboutView" class="about-panel" aria-labelledby="aboutTitle">
+  <h2 id="aboutTitle">Om Meritly</h2>
+  <p>Meritly är en oberoende, kuraterad katalog över kostnadsfria utbildningsmeriter. Målet är att göra det enkelt att upptäcka relevanta kurser och visa sin kompetens på CV eller LinkedIn.</p>
+  <h3>Vad betyder märkningarna?</h3>
+  <ul><li><strong>Certifikat:</strong> Kursintyg eller certifiering som utbildningsanordnaren själv erbjuder. Olika anordnare har olika krav.</li><li><strong>Digitalt märke:</strong> Digital badge som kan dokumentera en avklarad modul eller ett lärandemål. Det är inte nödvändigtvis en professionell certifiering.</li><li><strong>Gratis:</strong> Det listade kostnadsfria lärandespåret erbjuder en merit enligt anordnarens publicerade information; vissa spår kräver att du väljer en särskild kostnadsfri modul.</li></ul>
+  <p>Det här är ingen officiell katalog för anordnarna. Länkarna går till deras egna webbplatser, där aktuella villkor gäller. Listan är ett urval, inte en fullständig databas över alla certifikat på internet.</p>
+  <p>Meritly sparar inga användarkonton. Favoriter lagras i webbläsarens localStorage och synkroniseras inte mellan enheter. Sökningen sker lokalt i katalogen och kräver ingen server.</p>
+  <button type="button" class="btn btn-primary" data-page="all">Tillbaka till katalogen →</button>
+ </section>
+</main>
+<footer><div class="wrap footerin"><span>© <span id="year">2026</span> Meritly. En oberoende utbildningskatalog.</span><span>Bygg kunskap. Visa vad du kan.</span></div></footer>
+</body></html>

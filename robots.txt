@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://konrad654.github.io/Min-hemsida/sitemap.xml

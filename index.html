@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="En modern och responsiv hemsida under utveckling.">
+  <title>Min hemsida</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b16; --card:#151b30; --text:#f6f7fb; --muted:#aab3c8; --accent:#7e8cff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:radial-gradient(circle at 70% 5%,#222b54 0%,var(--bg) 55%); color:var(--text); line-height:1.6; }
+    a { color:inherit; }
+    .container { width:min(1100px,calc(100% - 40px)); margin:auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:24px 0; gap:20px; }
+    .logo { font-weight:800; text-decoration:none; letter-spacing:-.04em; font-size:1.25rem; }
+    nav { display:flex; gap:24px; }
+    nav a { text-decoration:none; color:var(--muted); }
+    nav a:hover,nav a:focus-visible { color:white; }
+    .hero { padding:115px 0 105px; max-width:760px; }
+    .eyebrow { color:#abb5ff; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; }
+    h1 { font-size:clamp(2.8rem,7vw,5.3rem); letter-spacing:-.065em; line-height:1.08; margin:18px 0; }
+    .gradient { background:linear-gradient(90deg,#9ca8ff,#65e4db); color:transparent; background-clip:text; }
+    .lead { max-width:590px; color:var(--muted); font-size:1.18rem; margin-bottom:32px; }
+    .button { display:inline-block; background:var(--accent); color:#090d1d; font-weight:800; text-decoration:none; padding:13px 23px; border-radius:12px; transition:transform .2s,background .2s; }
+    .button:hover { background:#a2acff; transform:translateY(-2px); }
+    section { padding-bottom:90px; }
+    h2 { font-size:clamp(1.7rem,4vw,2.5rem); letter-spacing:-.04em; margin:0 0 12px; }
+    .sub { color:var(--muted); margin:0 0 26px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { background:rgba(21,27,48,.85); border:1px solid #2b3554; border-radius:18px; padding:28px; }
+    .card .number { color:#a4afff; font-weight:800; }
+    .card h3 { margin:12px 0 8px; }
+    .card p { color:var(--muted); margin:0; }
+    .about { background:rgba(21,27,48,.65); border:1px solid #2b3554; border-radius:20px; padding:36px; }
+    .about p { color:var(--muted); max-width:720px; }
+    footer { border-top:1px solid #2b3554; color:var(--muted); padding:28px 0; font-size:.9rem; }
+    :focus-visible { outline:3px solid #65e4db; outline-offset:4px; }
+    @media (max-width:700px) { header{align-items:flex-start;flex-direction:column;} nav{gap:16px;} .hero{padding:75px 0;} .cards{grid-template-columns:1fr;} .about{padding:25px;} }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto;} .button{transition:none;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="logo" href="#start">Min hemsida<span style="color:var(--accent)">.</span></a>
+      <nav aria-label="Huvudmeny">
+        <a href="#start">Start</a>
+        <a href="#funktioner">Innehåll</a>
+        <a href="#om">Om sidan</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="start">
+        <p class="eyebrow">Mitt första webbprojekt</p>
+        <h1>Välkommen till <span class="gradient">min hemsida.</span></h1>
+        <p class="lead">Det här är början på något nytt. Sidan är skapad med HTML och CSS och kan byggas ut med egna idéer, undersidor och funktioner.</p>
+        <a class="button" href="#funktioner">Utforska sidan</a>
+      </section>
+      <section id="funktioner" aria-labelledby="features-title">
+        <h2 id="features-title">En bra grund att bygga vidare på</h2>
+        <p class="sub">Tre delar som gör hemsidan enkel att utveckla.</p>
+        <div class="cards">
+          <article class="card"><span class="number">01</span><h3>Modern design</h3><p>Ren layout, tydliga kontraster och en stil som fungerar på olika skärmar.</p></article>
+          <article class="card"><span class="number">02</span><h3>Mobilanpassad</h3><p>Innehållet anpassar sig automatiskt efter mobil, surfplatta och dator.</p></article>
+          <article class="card"><span class="number">03</span><h3>Enkel att ändra</h3><p>All kod finns i en fil. Det gör det enkelt att lägga till innehåll senare.</p></article>
+        </div>
+      </section>
+      <section id="om" aria-labelledby="about-title">
+        <div class="about"><h2 id="about-title">Om projektet</h2><p>Detta är en första version av hemsidan. Nästa steg kan vara att lägga till bilder, en personlig presentation, projekt eller interaktiva funktioner.</p></div>
+      </section>
+    </main>
+    <footer>© <span id="year">2026</span> Min hemsida. Byggd med HTML och CSS.</footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

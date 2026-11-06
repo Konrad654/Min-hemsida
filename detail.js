@@ -1,0 +1,6 @@
+"use strict";
+function savedIds(){try{const data=JSON.parse(localStorage.getItem('meritly-saved')||'[]');return new Set(Array.isArray(data)?data.filter(Number.isInteger):[])}catch{return new Set()}}
+function updateSaved(){const saved=savedIds();document.querySelectorAll('[data-save]').forEach(button=>{const active=saved.has(Number(button.dataset.save));button.setAttribute('aria-pressed',String(active));button.textContent=active?'Ta bort från sparade':'Spara utbildningen'})}
+document.querySelectorAll('[data-save]').forEach(button=>button.addEventListener('click',()=>{const saved=savedIds(),id=Number(button.dataset.save);saved.has(id)?saved.delete(id):saved.add(id);try{localStorage.setItem('meritly-saved',JSON.stringify([...saved]));updateSaved()}catch{const status=document.querySelector('#copyStatus');if(status)status.textContent='Webbläsaren tillåter inte att favoriter sparas.'}}));
+window.addEventListener('storage',updateSaved);window.addEventListener('pageshow',updateSaved);updateSaved();
+document.querySelector('#copyLink')?.addEventListener('click',async()=>{const status=document.querySelector('#copyStatus');try{await navigator.clipboard.writeText(location.href);status.textContent='Sidlänken har kopierats.'}catch{status.textContent='Kopiera adressen från webbläsarens adressfält.'}});

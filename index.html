@@ -7,15 +7,18 @@
 <meta name="theme-color" content="#4b56de">
 <title>Meritly – Gratis certifikat till ditt CV</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/logos/meritly.svg" type="image/svg+xml">
+<script src="courses.js" defer></script>
 <script src="script.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Hoppa till innehållet</a>
 <header>
  <div class="wrap topbar">
-  <a class="brand" href="#" aria-label="Meritly startsida"><span class="mark">✓</span> Merit<em>ly.</em></a>
+  <a class="brand" href="index.html" aria-label="Meritly startsida"><img class="brand-mark" src="assets/logos/meritly.svg" width="39" height="39" alt=""> Merit<em>ly.</em></a>
   <nav class="links" aria-label="Huvudmeny">
    <button type="button" data-page="all" class="active">Utforska</button>
-   <button type="button" data-page="about">Om sidan</button>
+   <a href="om-oss.html">Om oss</a>
    <button type="button" class="navfav" data-page="saved">♡ Sparade <span class="favcount">0</span></button>
   </nav>
  </div>
@@ -32,7 +35,7 @@
   <div class="heroart" aria-hidden="true"><div class="illustration"><small>DIN NÄSTA MERIT</small><div class="illrow"><div class="circle">✦</div><div><div style="font-weight:800;font-size:15px">Certificate of Completion</div><div class="illline"></div><div class="illline short"></div></div></div><div style="height:1px;background:#e8ebf3;margin:22px 0"></div><div class="seal">✓ En ny färdighet att visa upp</div></div></div>
  </div>
 </section>
-<main class="wrap main">
+<main class="wrap main" id="main">
  <div id="catalogView">
   <section id="catalog" aria-labelledby="catalogTitle">
    <div class="sectiontitle"><div><h2 id="catalogTitle">Utforska gratis certifikat</h2><p id="catalogSubtitle">Sök bland kostnadsfria meriter och utbildningar.</p></div></div>
@@ -69,5 +72,5 @@
   <button type="button" class="btn btn-primary" data-page="all">Tillbaka till katalogen →</button>
  </section>
 </main>
-<footer><div class="wrap footerin"><span>© <span id="year">2026</span> Meritly. En oberoende utbildningskatalog.</span><span>Bygg kunskap. Visa vad du kan.</span></div></footer>
+<footer><div class="wrap footerin"><span>© <span id="year">2026</span> Meritly. En oberoende utbildningskatalog.</span><a href="om-oss.html">Om oss</a></div></footer>
 </body></html>

@@ -1,0 +1,62 @@
+(()=>{
+"use strict";
+// Kuraterad katalog. Kontrollera alltid aktuella villkor hos utbildningsanordnaren.
+const entries=[
+["HubSpot","Digital Marketing Certification","Marknadsföring","Certifikat",3,"Nybörjare","Digital marknadsföring, SEO, sociala medier och e-post.","https://academy.hubspot.com/courses/digital-marketing"],
+["HubSpot","Social Media Marketing Certification","Marknadsföring","Certifikat",5,"Nybörjare","Strategi för sociala medier, innehåll och mätning.","https://academy.hubspot.com/certification-overview"],
+["HubSpot","Content Marketing Certification","Marknadsföring","Certifikat",8,"Nybörjare","Innehållsstrategi, storytelling och distribution.","https://academy.hubspot.com/certification-overview"],
+["HubSpot","Inbound Certification","Försäljning","Certifikat",3,"Nybörjare","Kundfokus, kundresor och inbound-metodik.","https://academy.hubspot.com/courses/inbound"],
+["HubSpot","Inbound Sales Certification","Försäljning","Certifikat",3,"Nybörjare","Behovsanalys, säljsamtal och moderna säljprocesser.","https://academy.hubspot.com/courses/inbound-sales"],
+["HubSpot","Digital Advertising Certification","Marknadsföring","Certifikat",4,"Medel","Strategi och optimering av digital annonsering.","https://academy.hubspot.com/certification-overview"],
+["HubSpot","HubSpot Reporting Certification","Data & analys","Certifikat",6,"Medel","Rapportering och analys i HubSpot.","https://academy.hubspot.com/courses/service?awardType=ONLY_SHOW_CERTIFICATE_COURSES"],
+["HubSpot","Service Hub Software Certification","Försäljning","Certifikat",2,"Medel","Kundservice och verktyg i HubSpot Service Hub.","https://academy.hubspot.com/certification-overview"],
+["HubSpot","Revenue Operations Certification","Företagande","Certifikat",7,"Medel","Samarbete mellan marknad, sälj och kundservice.","https://academy.hubspot.com/certification-overview"],
+["Google Skillshop","Google Ads Search Certification","Marknadsföring","Certifikat",null,"Medel","Sökannonser, kampanjupplägg och optimering i Google Ads.","https://skillshop.withgoogle.com/googleads/"],
+["Google Skillshop","Google Ads Display Certification","Marknadsföring","Certifikat",null,"Medel","Displayannonsering och målgrupper i Google Ads.","https://skillshop.withgoogle.com/googleads/"],
+["Google Skillshop","Google Ads Measurement Certification","Data & analys","Certifikat",null,"Medel","Mätning och utvärdering av annonsering.","https://skillshop.withgoogle.com/googleads/"],
+["Semrush Academy","SEO Certification","Marknadsföring","Certifikat",null,"Nybörjare","Sökmotoroptimering och synlighet på webben.","https://www.semrush.com/academy/certification/"],
+["Semrush Academy","Content Marketing Certification","Marknadsföring","Certifikat",null,"Nybörjare","Planera och skapa innehåll som når rätt målgrupp.","https://www.semrush.com/academy/certification/"],
+["Semrush Academy","Technical SEO Certification","IT & teknik","Certifikat",null,"Medel","Teknisk sökmotoroptimering, indexering och webbstruktur.","https://www.semrush.com/academy/certification/"],
+["freeCodeCamp","Responsive Web Design","Programmering","Certifikat",null,"Nybörjare","HTML, CSS och responsiv webbutveckling med projekt.","https://www.freecodecamp.org/learn/"],
+["freeCodeCamp","JavaScript Algorithms and Data Structures","Programmering","Certifikat",null,"Medel","JavaScript, algoritmer och datatyper med praktiska övningar.","https://www.freecodecamp.org/learn/"],
+["freeCodeCamp","Front End Development Libraries","Programmering","Certifikat",null,"Medel","Frontend-bibliotek och interaktiva webbgränssnitt.","https://www.freecodecamp.org/learn/"],
+["freeCodeCamp","Data Visualization","Data & analys","Certifikat",null,"Medel","Visualisera data med webbaserade verktyg.","https://www.freecodecamp.org/learn/"],
+["freeCodeCamp","Relational Database","Data & analys","Certifikat",null,"Medel","SQL, databaser och praktiska projekt.","https://www.freecodecamp.org/learn/"],
+["freeCodeCamp","Back End Development and APIs","Programmering","Certifikat",null,"Avancerad","Serverutveckling och API:er.","https://www.freecodecamp.org/learn/"],
+["IBM SkillsBuild","Digitala kompetenser och AI","AI","Digitalt märke",null,"Nybörjare","Utbildningsspår inom AI och digital kompetens. Välj ett spår som ger en digital merit.","https://skillsbuild.org/"],
+["Cisco Networking Academy","Introduction to Cybersecurity","Cybersäkerhet","Digitalt märke",null,"Nybörjare","Introduktion till cybersäkerhet och digitala hot.","https://www.netacad.com/"],
+["Cisco Networking Academy","Networking Basics","IT & teknik","Digitalt märke",null,"Nybörjare","Grundläggande nätverk, internet och kommunikation.","https://www.netacad.com/"],
+["Salesforce Trailhead","Salesforce Trailhead-moduler","Företagande","Digitalt märke",null,"Nybörjare","Korta gratis moduler som kan ge badges, inte samma sak som betald Salesforce-certifiering.","https://trailhead.salesforce.com/"]
+].map((r,i)=>({id:i+1,provider:r[0],title:r[1],category:r[2],type:r[3],hours:r[4],level:r[5],description:r[6],url:r[7]}));
+
+function coursePath(e){return "certifikat/"+e.id+"-"+e.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")+".html"}
+const providerLogos={"HubSpot":"hubspot","Google Skillshop":"google","Semrush Academy":"semrush","freeCodeCamp":"freecodecamp","IBM SkillsBuild":"ibm","Cisco Networking Academy":"cisco","Salesforce Trailhead":"salesforce"};
+
+"use strict";
+const categories=["Alla","Marknadsföring","Programmering","AI","Data & analys","IT & teknik","Cybersäkerhet","Försäljning","Företagande"];
+const $=(s)=>document.querySelector(s);
+const state={page:"all",category:"Alla",search:"",sort:"default",type:"all",level:"all",duration:"all",provider:"all",saved:loadSaved()};
+function loadSaved(){try{const data=JSON.parse(localStorage.getItem("meritly-saved")||"[]");return new Set(Array.isArray(data)?data.filter(Number.isInteger):[])}catch{return new Set()}}
+function persist(){try{localStorage.setItem("meritly-saved",JSON.stringify([...state.saved]))}catch{}}
+function create(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x}
+function renderFilters(){const target=$("#categories");target.replaceChildren();categories.forEach(c=>{const b=create("button","chip"+(state.category===c?" active":""),c);b.type="button";b.setAttribute("aria-pressed",String(state.category===c));b.addEventListener("click",()=>{state.category=c;render()});target.append(b)})}
+function filtered(){const s=state.search.toLocaleLowerCase("sv").trim();const arr=entries.filter(e=>(state.category==="Alla"||e.category===state.category)&&(state.page!=="saved"||state.saved.has(e.id))&&(state.type==="all"||e.type===state.type)&&(state.level==="all"||e.level===state.level)&&(state.provider==="all"||e.provider===state.provider)&&(state.duration==="all"||(e.hours!==null&&(state.duration==="short"?e.hours<=3:state.duration==="medium"?e.hours>3&&e.hours<=8:e.hours>8)))&&(!s||[e.title,e.provider,e.category,e.description,e.type,e.level].join(" ").toLocaleLowerCase("sv").includes(s)));if(state.sort==="az")arr.sort((a,b)=>a.title.localeCompare(b.title,"sv"));if(state.sort==="provider")arr.sort((a,b)=>a.provider.localeCompare(b.provider,"sv"));if(state.sort==="duration")arr.sort((a,b)=>(a.hours??999)-(b.hours??999));return arr}
+function card(e){const el=create("article","course");const top=create("div","course-top"),prov=create("div","provider"),av=create("span","avatar",e.provider.split(" ").map(s=>s[0]).join("").slice(0,2));const hue={"HubSpot":["#fff0e7","#da661b"],"Google Skillshop":["#eef5ff","#3273c8"],"Semrush Academy":["#fff1e9","#d75c35"],"freeCodeCamp":["#e9efff","#334e9c"],"IBM SkillsBuild":["#e9f8f9","#087b88"],"Cisco Networking Academy":["#eaf5fc","#2475a5"],"Salesforce Trailhead":["#e9f5ff","#1474bc"]}[e.provider]||["#eef0ff","#4b56de"];av.style.setProperty("--pbg",hue[0]);av.style.setProperty("--pfg",hue[1]);const logo=create("img","provider-logo");logo.src="assets/logos/"+providerLogos[e.provider]+".svg?v=20261106-2";logo.alt="";logo.width=24;logo.height=24;av.textContent="";av.append(logo);prov.append(av,create("span","",e.provider));const heart=create("button","heart"+(state.saved.has(e.id)?" saved":""),state.saved.has(e.id)?"♥":"♡");heart.type="button";heart.setAttribute("aria-label",state.saved.has(e.id)?"Ta bort från favoriter":"Spara i favoriter");heart.setAttribute("aria-pressed",String(state.saved.has(e.id)));heart.addEventListener("click",()=>{state.saved.has(e.id)?state.saved.delete(e.id):state.saved.add(e.id);persist();render()});top.append(prov,heart);const title=create("h3"),titleLink=create("a","",e.title);titleLink.href=coursePath(e);title.append(titleLink);const desc=create("p","",e.description),badges=create("div","badges");[["Gratis","free"],[e.type,""],[e.level,""],[e.category,""]].forEach(([t,c])=>badges.append(create("span","tag "+c,t)));const foot=create("div","cardfoot"),meta=create("span","meta",e.hours===null?"Tidsåtgång: varierar":"Cirka "+e.hours+" timmar"),link=create("a","course-link","Läs mer →");link.href=coursePath(e);link.setAttribute("aria-label","Läs mer om "+e.title);foot.append(meta,link);el.append(top,title,desc,badges,foot);return el}
+function render(){const about=state.page==="about";$("#catalogView").classList.toggle("hidden",about);$("#aboutView").classList.toggle("show",about);$("#hero").classList.toggle("hidden",about);document.querySelectorAll("[data-page]").forEach(b=>{b.classList.toggle("active",b.dataset.page===state.page);if(b.dataset.page==="saved"){const count=b.querySelector(".favcount");if(count)count.textContent=state.saved.size}});if(about)return;renderFilters();const arr=filtered(),grid=$("#courseGrid");grid.replaceChildren();$("#resultCount").textContent=arr.length;$("#catalogTitle").textContent=state.page==="saved"?"Sparade utbildningar":"Utforska gratis certifikat";$("#catalogSubtitle").textContent=state.page==="saved"?"Dina favoriter lagras bara i den här webbläsaren.":"Sök bland utbildningsanordnare och kostnadsfria meriter.";if(!arr.length){const box=create("div","empty");box.append(create("h3","","Inga träffar"),create("p","","Ändra eller nollställ filtren för att se fler alternativ."));grid.append(box);return}arr.forEach(e=>grid.append(card(e)))}
+function reset(){state.category="Alla";state.search="";state.type="all";state.level="all";state.duration="all";state.provider="all";state.sort="default";$("#search").value="";$("#type").value="all";$("#level").value="all";$("#duration").value="all";$("#provider").value="all";$("#sort").value="default";render()}
+document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>{state.page=b.dataset.page;history.replaceState(null,"",state.page==="saved"?"#sparade":location.pathname);render();window.scrollTo({top:0,behavior:"smooth"})}));
+$("#search").addEventListener("input",e=>{state.search=e.target.value;render()});
+for(const key of ["type","level","duration","provider","sort"])$("#"+key).addEventListener("change",e=>{state[key]=e.target.value;render()});
+$("#reset").addEventListener("click",reset);
+$("#browse").addEventListener("click",()=>{$("#catalog").scrollIntoView({behavior:"smooth"})});
+$("#year").textContent=new Date().getFullYear();
+$("#totalCourses").textContent=entries.length;
+$("#totalProviders").textContent=new Set(entries.map(e=>e.provider)).size;
+function readRoute(){state.page=location.hash==="#sparade"?"saved":"all";render()}
+window.addEventListener("hashchange",readRoute);
+readRoute();
+
+window.addEventListener("pageshow",()=>{state.saved=loadSaved();render()});
+window.addEventListener("storage",()=>{state.saved=loadSaved();render()});
+
+})();

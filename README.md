@@ -1,4 +1,4 @@
-# Meritly
+# SkillStamp
 
 En statisk webbplats för GitHub Pages. Appen körs utan externa tjänster och scriptbibliotek. Webbfonten Inter levereras lokalt.
 

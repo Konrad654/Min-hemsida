@@ -1,6 +1,6 @@
 # Meritly
 
-En statisk webbplats för GitHub Pages. Inga externa tjänster, scriptbibliotek eller webbfonter behövs.
+En statisk webbplats för GitHub Pages. Appen körs utan externa tjänster och scriptbibliotek. Webbfonten Sono levereras lokalt.
 
 ## Bygg
 
